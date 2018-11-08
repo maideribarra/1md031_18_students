@@ -70,7 +70,7 @@
 			<p>Here you put your information</p>
 			<div>
 				<h4>Delivery information:</h4>
-				<form>
+				<form id="form1">
 					<p>
 						<label for="Fullname">Name</label><br>
 						<input type="text" id="Fullname" name="fn" required="required" placeholder="name">
@@ -85,11 +85,40 @@
 					</p>
 					<p>
 						<label for="house">House</label><br>
-						<input type="number" id="house" name="ho" required="required" placeholder="street">
+						<input type="text" id="house" name="ho" required="required" placeholder="house">
 					</p>
 		
-				</form>				
+							
 			</div>
 		</div>
+		<div>
+			<h4>Payment</h4>
+			<div>
+				<p>
+				<label for="paymethod">Payment method</label><br>
+				<select id="paymethod" name="rcp">
+					<option selected="selected">Visa</option>
+					<option>Master Card</option>
+					<option>Paypal</option>
+					<option>Swish</option>
+				</select>
+</p>
+			</div>
+		</div>
+		<div>
+			<h4>Genre</h4>
+			<p>
+				<label for="female">Female</label><br>
+				<input type="radio" id="female" name="genre" checked="checked">
+			</p>
+			<p>
+				<label for="male">Male</label><br>
+				<input type="radio" id="male" name="genre">
+			</p>
+		</div>
+		                             
+		</form>	
+		<button form="form1" type="submit"><img src="https://cdn.icon-icons.com/icons2/259/PNG/128/ic_send_128_28719.png"> Send Info</button>
+        
 	</body>
 </html>
