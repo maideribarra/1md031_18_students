@@ -3,73 +3,72 @@
     <head>
         <title>Menu</title>
         <meta charset="utf-8"/>
-    </head>
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<h1 class="head" id="webtittle">Welcome to online burgers</h1>
+		<div class="head">
+		<img id="headimg"   src="https://st3.depositphotos.com/9109134/18209/v/600/depositphotos_182096182-stock-video-hungry-girl-eating-hamburger-on.jpg" alt="Background" >
+		</div>
+	</head>
     <body>
-		<h1>Welcome to online burgers</h1>
-		<div>
+		
+		<div id="hamburguerSelection" class="head">
 			<h3>Selection</h3>
 			<p>Here there are the burgers that you have selected<p>
-			<div>
-				<table>
-					<thead>
-						<tr>
-							<td>
-								<h4 align="center">Cheese burger</h4>
-							</td>
-							<td>
-								<h4 align="center">Cheese burger</h4>
-							</td>
-							<td>
-								<h4 align="center">Cheese burger</h4>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<img src="https://www.mcdonalds.es/sites/default/files/produits/477x360_hamburguesa.png" border="1" alt="Cheese burguer" width="400" height="300">
-							</td>
-							<td>
-								<img src="https://www.mcdonalds.es/sites/default/files/produits/477x360_hamburguesa.png" border="1" alt="Cheese burguer" width="400" height="300">
-							</td>
-							<td>
-								<img src="https://www.mcdonalds.es/sites/default/files/produits/477x360_hamburguesa.png" border="1" alt="Cheese burguer" width="400" height="300">
-							</td>
-						</tr>
-						<tr>
-							<td>
+			<div class="divtable">
+				<div class="table1">					
+							<div class="NameBurger" id="11">
+							<h4 align="center">Cheese <a>Lactose</a> burger</h4>
+							</div>
+							<div class="NameBurger" id="21">
+							<h4 align="center">Cheese burger</h4>
+							</div>
+							<div class="NameBurger" id="31">
+							<h4 align="center">Cheese burger</h4>
+							</div>
+							<div class="ImageBurger" id="21">
+							<img  class="burgerImage" src="https://www.mcdonalds.es/sites/default/files/produits/477x360_hamburguesa.png" border="1" alt="Cheese burguer" width="400" height="300">
+							</div>
+							<div class="ImageBurger" id="22">							
+							<img class="burgerImage" src="https://www.mcdonalds.es/sites/default/files/produits/477x360_hamburguesa.png" border="1" alt="Cheese burguer" width="400" height="300">
+							</div>
+							<div class="ImageBurger" id="23">
+							<img class="burgerImage" src="https://www.mcdonalds.es/sites/default/files/produits/477x360_hamburguesa.png" border="1" alt="Cheese burguer" width="400" height="300">
+							</div>
+						    <div class="DetailsBurger" id="31">
 								<ul>
-									<li>Crispy bread</li>
+									<li>Crispy bread <a id="typefood">Gluten</a></li>
 									<li>double meet</li>
 									<li>caramelized onions</li>
 								</ul>
-							</td>
-							<td>
+							</div>
+							<div class="DetailsBurger" id="32">
 								<ul>
-									<li>Crispy bread</li>
+									<li>Crispy bread <a id="typefood">Gluten</a></li>
 									<li>double meet</li>
 									<li>caramelized onions</li>
 								</ul>
-
-							</td>
-							<td>
+							</div>
+							<div class="DetailsBurger" id="33">							
 								<ul>
-									<li>Crispy bread</li>
-									<li>double meet</li>
-									<li>caramelized onions</li>
+									<li>Crispy bread <a id="typefood">Gluten</a></li>
+									<li>Double meet</li>
+									<li>Caramelized onions</li>
 								</ul>
-
-							</td>
-						</tr>
-					</thead>
-				</table>
+								</div>
+							</div>
+					
+				</div>
 				
 				
 			</div>
 		</div>
-		<div>
+		<div id="CustomerSelection">
 			<h3>Customer</h3>
 			<p>Here you put your information</p>
 			<div>
 				<h4>Delivery information:</h4>
+				<div id="form">
 				<form id="form1">
 					<p>
 						<label for="Fullname">Name</label><br>
@@ -85,7 +84,7 @@
 					</p>
 					<p>
 						<label for="house">House</label><br>
-						<input type="text" id="house" name="ho" required="required" placeholder="house">
+						<input type="number" id="house" name="ho" required="required" placeholder="house">
 					</p>
 		
 							
@@ -117,8 +116,10 @@
 			</p>
 		</div>
 		                             
-		</form>	
-		<button form="form1" type="submit"><img src="https://cdn.icon-icons.com/icons2/259/PNG/128/ic_send_128_28719.png"> Send Info</button>
-        
+		</form>
+		<div id="divbutton">
+		<button id="button" form="form1" type="submit"><img src="https://cdn.icon-icons.com/icons2/259/PNG/128/ic_send_128_28719.png"> Send Info</button>
+        </div>
+		</div>
 	</body>
 </html>
