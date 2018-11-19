@@ -1,3 +1,5 @@
+CreateBurgersDiv();
+
 function MenuItem(name,kcal, gluten, lactosa,url) {
     this.name=name; // The this keyword refers to the object itself
     this.kcal =kcal;
@@ -84,10 +86,7 @@ function CreateBurgersDiv(){
 		checkbox.setAttribute('type', 'checkbox');
 		divburger.appendChild(checkbox);
 		table1.appendChild(divburger);
-		console.log(i);
-		
-		
-	
+		console.log(i);	
 	}	
 	divtable.appendChild(table1);
 	divtable.setAttribute('class', 'divtable');
@@ -100,28 +99,55 @@ function OrderBurger(){
 	divOrder=document.createElement("div");
 	
 }
-var myButton = document.getElementbyId('button');
-myButton.onclick = function () {
+function Click() {
 	var name=document.getElementById("Fullname").value;
+	console.log(name);
 	var email=document.getElementById("email").value;
+	console.log(email);
 	var street=document.getElementById("street").value;
+	console.log(street);
 	var house=document.getElementById("house").value;
+	console.log(house);
+	var payment=document.getElementById("paymethod").value;
+	console.log(house);
+	var genre=document.getElementById("house").value;
+	console.log(house);
+	
 	var divorder = document.createElement("div");
 	var pname = document.createElement("p");
 	var pemail = document.createElement("p");
 	var pstreet = document.createElement("p");
 	var phouse = document.createElement("p");
+	var payment = document.createElement("p");
+	var genre = document.createElement("p");
+
 	var txtname = document.createTextNode(name);
 	var txtemail = document.createTextNode(email);
 	var txtstreet = document.createTextNode(street);
 	var txthouse = document.createTextNode(house);
+	var txtgenre = document.createTextNode(house);
+	var txtName = document.createTextNode("Name:");
+	var txtEmail = document.createTextNode("Email:");
+	var txtStreet = document.createTextNode("Street:");
+	var txtHouse = document.createTextNode("House:");	
+	pname.appendChild(txtName);
+	pemail.appendChild(txtEmail);
+	pstreet.appendChild(txtStreet);
+	phouse.appendChild(txtHouse);
 	pname.appendChild(txtname);
+	pemail.appendChild(txtemail);
+	pstreet.appendChild(txtstreet);
+	phouse.appendChild(txthouse);	
+	divorder.appendChild(pname);
+	divorder.appendChild(pemail);
+	divorder.appendChild(pstreet);
+	divorder.appendChild(phouse);	
+	var divor = document.getElementById("order");
+	divor.appendChild(divorder);
 	
 	
-	
-	
+		
 }
 
-CreateBurgersDiv();
 
 
