@@ -1,0 +1,111 @@
+@import 'https://fonts.googleapis.com/css?family=Pacifico|Dosis';
+body {
+	margin: 40px 15px;
+	font-family: calibri;
+	font-size:2em;
+	background-color: #D8D8D8;	
+}
+.typefood {
+	font-weight:bold;
+}
+.head{
+	margin: 40px 15px;
+}
+#webtittle{
+	position:absolute;
+	overflow:hidden;
+}
+#headimg{
+	height:50vh;
+	width:100%;
+	opacity:0.7;
+}
+#hamburguerSelection{
+	padding: 1px 23px 4px;
+	border: 2px dashed white;
+	align:center;	
+	background-color:black;
+	color:white;	
+}
+button:hover {
+   background-color:black;
+   cursor:pointer;
+   align: center;
+}
+#divbutton{
+	width:20cm;
+}
+#button{
+	margin: 60px 2px 3px 4px;
+	align: center;
+}
+
+.divtable{
+
+	align:center;
+}
+.table1{
+	 margin: 1px 2px 3px 4px;	 
+	 align: center;
+	 display: grid;
+     grid-gap: 10px;
+     background-color: #fff;
+     color: #444;
+	 grid-template-columns: auto;	 
+}
+#divbutton{
+	
+	align: center;
+}
+#CustomerSelection{
+	padding: 1px 23px 4px;
+	border: 2px dashed black;
+	align:center;
+}
+.burgerImage{
+	height:auto;
+	width:100%;	
+}
+.line {
+     background-color: #444;
+     color: #fff;
+     border-radius: 5px;
+     padding: 20px;
+     font-size: 50%;
+
+ }
+ .burger0{
+	 grid-column: 1;
+	 background-color:black;
+
+ }
+ .burger1{
+	 grid-column: 2;	
+	 background-color:black;
+
+ }
+ .burger2{
+	 grid-column: 3;
+	 background-color:black;
+ }
+ .table1 div:nth-child(3n){
+	 
+	 grid-column: 3;
+	 background-color:black;
+	 
+
+ }
+ .table1 div:nth-child(3n+1){
+	 
+	 grid-column: 1;	
+	 background-color:black;
+	 
+
+ }
+ .table1 div:nth-child(3n+2){
+	 
+	 grid-column: 2;
+	 background-color:black;
+	 
+ }
+ 
