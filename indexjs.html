@@ -8,17 +8,53 @@
 		<div class="head">
 		<img id="headimg" src="https://st3.depositphotos.com/9109134/18209/v/600/depositphotos_182096182-stock-video-hungry-girl-eating-hamburger-on.jpg" alt="Background" >
 		</div>
-		<title>Menu</title>
-		<script type="text/javascript" src="js/menu.js" ></script>		
+		<title>Menu</title>		
+		<script src="https://vuejs.org/js/vue.js" ></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		
 		<script src="js/js_script.js" defer></script>
-
 	</head>
     <body>
 		
 		<div id="hamburguerSelection" class="head">
 			<h3>Selection</h3>
 			<p>Here there are the burgers that you have selected<p>
-			
+			<div class="divtable">
+										
+						<ol>
+							<div class="table1">
+							<div v-for="burger in food"> 
+								
+								
+									<h4 align="center">{{ burger.name }}</h4>
+									<img class="burgerImage" :src="burger.img" >
+									<ul>
+										<li>{{ burger.kCal }}</li>
+										<li><div v-if="burger.lactose">
+												<p v-if="burger.gluten">This hamburger contains gluten and lactosa</p>
+												<p v-else>This hamburger contains lactose</p>
+											</div>
+										    <div v-else>
+										        <p v-if="burger.gluten">This hamburger contains gluten</p>
+												<p v-else>This hamburger is gluten and lactose free</p>									
+												
+											</div>
+										</li>
+										
+										<li><input type="checkbox"></li>
+									</ul>
+									
+								
+								
+							</div>
+							</div>
+						</ol>
+						
+								
+				
+				
+				
+			</div>
 		</div>
 		
 		<div id="CustomerSelection">
@@ -76,13 +112,18 @@
 		                             
 		</form>
 		<div id="divbutton">
-		<button id="button" form="form1" type="submit"><img src="https://cdn.icon-icons.com/icons2/259/PNG/128/ic_send_128_28719.png"> Send Info</button>
+			<button id="button" onclick="Click()" >
+			
+				<img src="https://cdn.icon-icons.com/icons2/259/PNG/128/ic_send_128_28719.png"> Send Info
+			</button>
         </div>
 		</div>
 		<div id="myID">
 			
 			
 			 
+		</div>
+		<div id="order">
 		</div>
 		
 	</body>

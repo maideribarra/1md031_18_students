@@ -69,3 +69,50 @@ Create a vue_script.js file which contains:
     - [ ] A location on the map
     - [ ] The order information
     - [ ] The customer information
+
+ function() {
+			 alert('Hello ')
+            var name=document.getElementById("Fullname").value;
+			console.log(name);
+			var email=document.getElementById("email").value;
+			console.log(email);
+			var street=document.getElementById("street").value;
+			console.log(street);
+			var house=document.getElementById("house").value;
+			console.log(house);
+			var divorder = document.createElement("div");
+			var pname = document.createElement("p");
+			var pemail = document.createElement("p");
+			var pstreet = document.createElement("p");
+			var phouse = document.createElement("p");
+			var txtname = document.createTextNode(name);
+			var txtemail = document.createTextNode(email);
+			var txtstreet = document.createTextNode(street);
+			var txthouse = document.createTextNode(house);
+			pname.appendChild(txtname);
+			pemail.appendChild(txtemail);
+			pstreet.appendChild(txtstreet);
+			phouse.appendChild(txthouse);
+			divorder.appendChild(pname);
+			divorder.appendChild(pemail);
+			divorder.appendChild(pstreet);
+			divorder.appendChild(phouse);	
+			var divor = document.getElementById("order");
+			divor.appendChild(divorder);
+			for(i;i<checkedNames[i].length;i++)
+			{
+			var liorder = document.createElement("li");
+			console.log(document.getElementById("cb"+i).value);				
+						
+				var pnameburger = document.createElement("p");
+				var txtNameBurger = document.createTextNode(checkedNames[i].parentNode().name);
+				console.log(hamburgers[i].getElementByClassName('nameBurger'));		
+				pnameburger.appendChild(txtNameBurger);
+				liorder.appendChild(pnameburger);
+			
+			
+			divburger.appendChild(liorder);
+		}
+	
+        }   
+    }

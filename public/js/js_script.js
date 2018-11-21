@@ -54,14 +54,17 @@ function CreateBurgersDiv(){
 	var arr=AddBurguers(JSON.stringify(food));
 	var divtable = document.createElement("div");
 	var table1=document.createElement("div");
+	table1.setAttribute('class', 'table1');	
 	console.log(arr.length);
 	var i=0;
 	for(i;i<arr.length;i++)
 	{
 		var divburger=document.createElement("div");
 		divburger.setAttribute('class', 'Burger');	
-		divburger.setAttribute('class', 'burger'+(i%3));		
+				
 		var h4=document.createElement("h4");
+		h4.setAttribute('class', 'nameBurger');
+	
 		var txt = document.createTextNode(arr[i].name);
 		h4.appendChild(txt);
 		var img=document.createElement("img");
@@ -84,6 +87,7 @@ function CreateBurgersDiv(){
 		divburger.appendChild(ul);
 		var checkbox=document.createElement("input");
 		checkbox.setAttribute('type', 'checkbox');
+		checkbox.setAttribute('id', "cb"+i);
 		divburger.appendChild(checkbox);
 		table1.appendChild(divburger);
 		console.log(i);	
@@ -99,7 +103,17 @@ function OrderBurger(){
 	divOrder=document.createElement("div");
 	
 }
-function Click() {
+function Click(burgers) {
+	var titleOrder=document.createElement("h3");
+	var texttitleOrder=document.createTextNode("Order confirmation");
+	titleOrder.appendChild(texttitleOrder);
+	var titleCustomer=document.createElement("h2");
+	var texttitleCustomer=document.createTextNode("Customer details");
+	titleCustomer.appendChild(texttitleCustomer);	
+	var titleBurger=document.createElement("h2");
+	var texttitleBurger=document.createTextNode("Order Sumary");	
+	titleBurger.appendChild(texttitleBurger);	
+	var hamburgers=document.getElementsByClassName("Burger"); 
 	var name=document.getElementById("Fullname").value;
 	console.log(name);
 	var email=document.getElementById("email").value;
@@ -111,8 +125,7 @@ function Click() {
 	var payment=document.getElementById("paymethod").value;
 	console.log(house);
 	var genre=document.getElementById("house").value;
-	console.log(house);
-	
+	console.log(house);	
 	var divorder = document.createElement("div");
 	var pname = document.createElement("p");
 	var pemail = document.createElement("p");
@@ -120,7 +133,6 @@ function Click() {
 	var phouse = document.createElement("p");
 	var payment = document.createElement("p");
 	var genre = document.createElement("p");
-
 	var txtname = document.createTextNode(name);
 	var txtemail = document.createTextNode(email);
 	var txtstreet = document.createTextNode(street);
@@ -137,15 +149,38 @@ function Click() {
 	pname.appendChild(txtname);
 	pemail.appendChild(txtemail);
 	pstreet.appendChild(txtstreet);
-	phouse.appendChild(txthouse);	
+	phouse.appendChild(txthouse);
+	divorder.appendChild(titleOrder);
+	divorder.appendChild(titleCustomer);
+	divorder.appendChild(pname);	
 	divorder.appendChild(pname);
 	divorder.appendChild(pemail);
 	divorder.appendChild(pstreet);
-	divorder.appendChild(phouse);	
+	divorder.appendChild(phouse);
+	divorder.appendChild(titleBurger);		
 	var divor = document.getElementById("order");
+	var divburger=document.createElement("div");
+	var i=0;
+	console.log("hamburger lenght");
+	console.log(hamburgers.length);
+	for(i;i<hamburgers.length;i++)
+	{
+		var liorder = document.createElement("li");
+		console.log(document.getElementById("cb"+i).value);			
+			
+		if(document.getElementById("cb"+i).checked==true){
+			console.log(document.getElementById("cb"+i).value);			
+			var pnameburger = document.createElement("p");
+			var txtNameBurger = document.createTextNode(hamburgers[i].getElementByClassName('nameBurger'));
+			console.log(hamburgers[i].getElementByClassName('nameBurger'));		
+			pnameburger.appendChild(txtNameBurger);
+			liorder.appendChild(pnameburger);
+			
+		}
+		divburger.appendChild(liorder);
+	}
+	divorder.appendChild(divburger);
 	divor.appendChild(divorder);
-	
-	
 		
 }
 

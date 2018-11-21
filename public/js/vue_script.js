@@ -2,9 +2,15 @@ var vm = new Vue({
   el: '#hamburguerSelection',
   data: {
     food
-  },
+	
+  }
+})
+
+var vm2 = new Vue({
+  el: '#divbutton',
   methods: {
         click: function() {
+			 alert('Hello ')
             var name=document.getElementById("Fullname").value;
 			console.log(name);
 			var email=document.getElementById("email").value;
@@ -35,3 +41,4 @@ var vm = new Vue({
         }   
     }
 })
+
