@@ -7,15 +7,36 @@ var socket = io();
 var vm = new Vue({
   el: '#orders',
   data: {
-    orders: {},
+    // list of available food
+	received: false,
+	// selected burger
+	checkedBurgers: [],
+	orders: {},
+	
+	// customer information
+	customer: {
+	  fullname: "",
+	  email: "",
+	  street: "",
+	  house: 1,
+	  gender: null,
+	  card: null,
+	}
   },
   created: function () {
-    socket.on('initialize', function (data) {
+    socket.on('onClick', function (data) {
+	  console.log("hi");
+	  this.received=true;
       this.orders = data.orders;
+	  this.customer.fullname=data.fullname;
+	  this.customer.email=data.email;
+	  this.customer.street=data.street;
+	  this.customer.house=data.house;
+	  this.customer.gender=data.gender;
+	  this.customer.card=data.card;
+	  
+	  this.checkedBurgers=data.checkedBurgers;
     }.bind(this));
 
-    socket.on('currentQueue', function (data) {
-      this.orders = data.orders;
-    }.bind(this));
   }
 });

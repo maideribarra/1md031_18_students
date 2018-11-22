@@ -15,7 +15,7 @@
 		<title>Menu</title>		
 		<script src="https://vuejs.org/js/vue.js" ></script>
 		<script type="text/javascript" src="js/menu.js"></script>
-		
+		<script src="/socket.io/socket.io.js" defer></script>  
 		<script src="js/vue_script.js" defer></script>
 	</head>
     <body id="body">
@@ -131,7 +131,7 @@
 			<div v-if="showConfbox" id="order">
               <p>Order confirmation</p>
 			  
-			  <p><strong>Name:</strong> {{ customer.name }}</p>
+			  <p><strong>Name:</strong> {{ customer.fullname }}</p>
 			  <p><strong>Street:</strong> {{orders.x  }}  {{ orders.y }}</p>
 			  <p><strong>Email:</strong> {{ customer.email }}</p>
 			  <p><strong>House no:</strong> {{ customer.house }}</p>

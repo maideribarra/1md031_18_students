@@ -1,3 +1,5 @@
+'use strict';
+var socket = io();
 
 var vm = new Vue({
   el: '#hamburgerApp',
@@ -21,10 +23,21 @@ var vm = new Vue({
 		
 	showConfbox: false
   },
-  
   methods: {
     onClick: function() {
+	  console.log("hi");
 	  this.showConfbox = true;
+	  socket.emit("onClick", { orders: { x: this.orders.x,
+                                           y: this.orders.y },
+                                fullname: this.customer.fullname,
+								email: this.customer.email,
+								street: this.customer.street,
+								house: this.customer.house,
+								gender: this.customer.gender,
+								card: this.customer.card,
+								checkedBurgers: this.checkedBurgers
+								
+                              });
 	  },
 	displayOrder: function() {
 	  this.showConfbox = true;
@@ -35,12 +48,14 @@ var vm = new Vue({
                     y: event.currentTarget.getBoundingClientRect().top};
 	  this.orders= {x: event.clientX - offset.x,
                                            y: event.clientY - offset.y }
+	  
+
       
     }
 	
   }
   
-})
+});
 
 
   

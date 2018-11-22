@@ -33,7 +33,7 @@ app.get('/dispatcher', function (req, res) {
 // Store data in an object to keep the global namespace clean and 
 // prepare for multiple instances of data if necessary
 function Data() {
-  this.orders = {};
+  
 }
 
 /*
@@ -41,7 +41,15 @@ function Data() {
 */
 Data.prototype.addOrder = function (order) {
   //Store the order in an "associative array" with orderId as key
-  this.orders[order.orderId] = order;
+  this.checkedBurgers=order.checkedBurgers;
+  this.orders=order.orders;
+  this.fullname=order.fullname;
+  this.email= order.email;
+  this.street= order.street;
+  this.house=order.house;
+  this.gender= order.gender;
+  this.card= order.card;
+  
 };
 
 Data.prototype.getAllOrders = function () {
@@ -59,6 +67,20 @@ io.on('connection', function (socket) {
     data.addOrder(order);
     // send updated info to all connected clients, note the use of io instead of socket
     io.emit('currentQueue', { orders: data.getAllOrders() });
+  });
+  socket.on('onClick', function (order) {
+	console.log("bye");
+    data.addOrder(order);
+    // send updated info to all connected clients, note the use of io instead of socket
+	io.emit('onClick', { orders: ,
+                                fullname: this.customer.fullname,
+								email: this.customer.email,
+								street: this.customer.street,
+								house: this.customer.house,
+								gender: this.customer.gender,
+								card: this.customer.card,
+								checkedBurgers: this.checkedBurgers });
+    
   });
 
 });
