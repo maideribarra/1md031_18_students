@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+  
         <meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/deli-very.css">
+  
 		<h1 class="head" id="webtittle">Welcome to online burgers</h1>
 		<div class="head">
 		<img id="headimg" src="https://st3.depositphotos.com/9109134/18209/v/600/depositphotos_182096182-stock-video-hungry-girl-eating-hamburger-on.jpg" alt="Background" >
@@ -15,118 +19,133 @@
 		<script src="js/vue_script.js" defer></script>
 	</head>
     <body id="body">
+		<div id="hamburgerApp">
 		
-		<div id="hamburguerSelection" class="head">
-			<h3>Selection</h3>
-			<p>Here there are the burgers that you have selected<p>
-			<div class="divtable">
-										
-						<ol>
-							<div class="table1">
+			<div id="hamburguerSelection" class="head">
+				<h3>Selection</h3>
+				<p>Here there are the burgers that you have selected<p>
+  
+				<div class="divtable">
+					<ol>
+						<div class="table1">
 							<div v-for="burger in food"> 
 								
-								
-									<h4 align="center">{{ burger.name }}</h4>
-									<img class="burgerImage" :src="burger.img" >
-									<ul>
-										<li>{{ burger.kCal }}</li>
-										<li><div v-if="burger.lactose">
-												<p v-if="burger.gluten">This hamburger contains gluten and lactosa</p>
-												<p v-else>This hamburger contains lactose</p>
-											</div>
-										    <div v-else>
-										        <p v-if="burger.gluten">This hamburger contains gluten</p>
-												<p v-else>This hamburger is gluten and lactose free</p>									
-												
-											</div>
-										</li>
-										
-										<li><input type="checkbox" v-model="checkedNames" value="burger.name" ></li>
-									</ul>
+								<h4 align="center">{{ burger.name }}</h4>
+								<img class="burgerImage" :src="burger.img" >
+								<ul>
+									<li>{{ burger.kCal }}</li>
+									<li><div v-if="burger.lactose">
+											<p v-if="burger.gluten">This hamburger contains gluten and lactosa</p>
+											<p v-else>This hamburger contains lactose</p>
+										</div>
+										<div v-else>
+											<p v-if="burger.gluten">This hamburger contains gluten</p>
+											<p v-else>This hamburger is gluten and lactose free</p>									
+											
+										</div>
+									</li>
 									
-								
-								
+									<li><input type="checkbox" v-model="checkedBurgers" :value="burger.name" ></li>
+								</ul>
 							</div>
-							</div>
-						</ol>
-						
-								
-				
-				
-				
+						</div>
+					</ol>
+				</div>
 			</div>
-		</div>
-		
-		<div id="CustomerSelection">
-			<h3>Customer</h3>
-			<p>Here you put your information</p>
-			<div>
-				<h4>Delivery information:</h4>
-				<div id="form">
-				<form id="form1">
+
+
+			<div id="CustomerSelection">
+				<h3>Customer</h3>
+				<p>Here you put your information</p>
+				<div>
+					<h4>Delivery information:</h4>
+					<div id="form">
+						<!-- <form id="form1">-->
+							<p>
+								<label for="Fullname">Name</label><br>
+								<input v-model="customer.fullname" type="text" id="Fullname" name="fn" required="required" placeholder="name">
+							</p>
+							<p>
+								<label for="email">Email</label><br>
+								<input v-model="customer.email" type="text" id="email" name="em" placeholder="email">
+							</p>
+							<p>
+								<label for="street">Street</label><br>
+								<input v-model="customer.street" type="text" id="street" name="st" required="required" placeholder="street">
+							</p>
+							<p>
+								<label for="house">House</label><br>
+								<input v-model="customer.house" type="number" id="house" name="ho" required="required" placeholder="house">
+							</p>
+					</div>
+				</div>
+				<div>
+					<h4>Payment</h4>
+					<div>
+						<p>
+						<label for="paymethod">Payment method</label><br>
+						<select v-model="customer.card" id="paymethod" name="rcp">
+							<option selected="selected">Visa</option>
+							<option>Master Card</option>
+							<option>Paypal</option>
+							<option>Swish</option>
+						</select>
+						</p>
+					</div>
+				</div>
+				<div>
+					<h4>Gender</h4>
 					<p>
-						<label for="Fullname">Name</label><br>
-						<input type="text" id="Fullname" name="fn" required="required" placeholder="name">
+						<label for="female">Female</label><br>
+						<input v-model="customer.gender" type="radio" id="female" value="female" name="gender" checked="checked">
 					</p>
 					<p>
-						<label for="email">Email</label><br>
-						<input type="text" id="email" name="em" placeholder="email">
+						<label for="male">Male</label><br>
+						<input v-model="customer.gender" type="radio" id="male" value="male" name="gender">
 					</p>
-					<p>
-						<label for="street">Street</label><br>
-						<input type="text" id="street" name="st" required="required" placeholder="street">
-					</p>
-					<p>
-						<label for="house">House</label><br>
-						<input type="number" id="house" name="ho" required="required" placeholder="house">
-					</p>
-		
-							
-			</div>
-		</div>
-		<div>
-			<h4>Payment</h4>
-			<div>
-				<p>
-				<label for="paymethod">Payment method</label><br>
-				<select id="paymethod" name="rcp">
-					<option selected="selected">Visa</option>
-					<option>Master Card</option>
-					<option>Paypal</option>
-					<option>Swish</option>
-				</select>
-</p>
-			</div>
-		</div>
-		<div>
-			<h4>Genre</h4>
-			<p>
-				<label for="female">Female</label><br>
-				<input type="radio" id="female" name="genre" checked="checked">
-			</p>
-			<p>
-				<label for="male">Male</label><br>
-				<input type="radio" id="male" name="genre">
-			</p>
-		</div>
-		                             
-		</form>
-		<div id="divbutton">
-			<button v-on:click="click" id="button">			
-				<img src="https://cdn.icon-icons.com/icons2/259/PNG/128/ic_send_128_28719.png"> Send Info
-			</button>
-			
+				</div>
+			<!--</form>-->
+				<h1> Click in the map! </h1>
+  <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+  <div class="view-box">
+    <div id="dots" v-on:click="addOrder">
+        <div 
+          
+          v-bind:style="{ left: orders.x + 'px', top: orders.y + 'px'}" >
+          
         </div>
+    </div>
+  </div>
+					
+				<div id="divbutton">
+					<button v-on:click="onClick" id="button">			
+						<img src="https://cdn.icon-icons.com/icons2/259/PNG/128/ic_send_128_28719.png"> Send Info
+					</button>
+				</div>
+			</div>
+			<div id="myID">
+				
+				
+				 
+			</div>
+			<div v-if="showConfbox" id="order">
+              <p>Order confirmation</p>
+			  
+			  <p><strong>Name:</strong> {{ customer.name }}</p>
+			  <p><strong>Street:</strong> {{orders.x  }}  {{ orders.y }}</p>
+			  <p><strong>Email:</strong> {{ customer.email }}</p>
+			  <p><strong>House no:</strong> {{ customer.house }}</p>
+			  <p><strong>Gender:</strong> {{ customer.gender }}</p>
+			  <p><strong>Card:</strong> {{ customer.card }}</p>
+			  
+			  <strong>Ordered burgers:</strong>
+			  
+			  <ul>
+			  <li v-for="burgerName in checkedBurgers">
+				{{burgerName}}
+			  </li>
+			  </ul>
+			</div>
 		</div>
-		<div id="myID">
-			
-			
-			 
-		</div>
-		<div id="order">
-		</div>
-		
 	</body>
-	
-	
 </html>
