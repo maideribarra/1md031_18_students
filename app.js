@@ -61,25 +61,19 @@ var data = new Data();
 io.on('connection', function (socket) {
   // Send list of orders when a client connects
   socket.emit('initialize', { orders: data.getAllOrders() });
-
+  
   // When a connected client emits an "addOrder" message
   socket.on('addOrder', function (order) {
     data.addOrder(order);
     // send updated info to all connected clients, note the use of io instead of socket
     io.emit('currentQueue', { orders: data.getAllOrders() });
   });
-  socket.on('onClick', function (order) {
-	console.log("bye");
-    data.addOrder(order);
+  socket.on('order', function (order) {
+
     // send updated info to all connected clients, note the use of io instead of socket
-	io.emit('onClick', { orders: ,
-                                fullname: this.customer.fullname,
-								email: this.customer.email,
-								street: this.customer.street,
-								house: this.customer.house,
-								gender: this.customer.gender,
-								card: this.customer.card,
-								checkedBurgers: this.checkedBurgers });
+	io.emit('order', order);
+
+    data.addOrder(order);
     
   });
 

@@ -24,9 +24,9 @@ var vm = new Vue({
 	}
   },
   created: function () {
-    socket.on('onClick', function (data) {
-	  console.log("hi");
-	  this.received=true;
+    socket.on('order', function (data) {
+
+      this.received=true;
       this.orders = data.orders;
 	  this.customer.fullname=data.fullname;
 	  this.customer.email=data.email;

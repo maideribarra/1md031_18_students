@@ -25,9 +25,9 @@ var vm = new Vue({
   },
   methods: {
     onClick: function() {
-	  console.log("hi");
 	  this.showConfbox = true;
-	  socket.emit("onClick", { orders: { x: this.orders.x,
+	  
+	  socket.emit("order", { orders: { x: this.orders.x,
                                            y: this.orders.y },
                                 fullname: this.customer.fullname,
 								email: this.customer.email,
@@ -38,7 +38,7 @@ var vm = new Vue({
 								checkedBurgers: this.checkedBurgers
 								
                               });
-	  },
+	},
 	displayOrder: function() {
 	  this.showConfbox = true;
 	},
